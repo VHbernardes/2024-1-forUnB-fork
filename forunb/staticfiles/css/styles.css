@@ -1,0 +1,839 @@
+/* BASE.HTML */
+
+/* Ajustes gerais */
+.bg-green {
+    background: linear-gradient(to bottom, #006633, #006633, #04A356);
+    padding: 15px;
+    width: 230px;
+}
+
+/* Barra lateral fixa em telas grandes */
+.custom-height {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Barra lateral */
+#accordionSidebar {
+    display: none; /* Inicialmente oculta em telas pequenas */
+}
+
+/* Ajustes para a largura da barra lateral em telas grandes */
+@media (min-width: 1200px) {
+    .bg-green {
+        width: 230px;
+    }
+    #accordionSidebar {
+        display: flex; /* Exibe a barra lateral em telas grandes */
+    }
+    #sidebarToggle {
+        display: none; /* Esconde o botão de menu em telas grandes */
+    }
+}
+
+/* Ajuste para o container principal */
+.col-xl-9 {
+    padding: 0; /* Remove o padding para evitar espaço extra */
+    flex: 1; /* Garante que o conteúdo principal ocupe o espaço restante */
+    display: flex;
+    flex-direction: column;
+    margin-left: 0; /* Garante que não há margem esquerda que cause deslocamento */
+    overflow: hidden;
+    height: 100vh;
+}
+
+/* Ajustes para a barra de pesquisa */
+.search-bar {
+    background-color: #C7D2DD;
+    color: #003366;
+    font-weight: bolder;
+    border: none;
+    padding: 10px 20px;
+    padding-right: 10px;
+    border-radius: 20px;
+    max-width: 700px;
+    margin-left: 90px;
+    flex-grow: 1; /* Faz a barra de pesquisa crescer para preencher o espaço disponível */
+    position: relative;
+}
+
+.search-bar:focus {
+    outline: none;
+    box-shadow: none;
+    background-color: #C7D2DD;
+}
+
+.search-bar::placeholder {
+    color: #003366; 
+    font-weight: bolder;
+    font-size: 1.1rem;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Botão do menu para telas pequenas */
+#sidebarToggle {
+    margin-right: 15px;
+    display: none; /* Inicialmente oculto */
+}
+
+/* Ajustes para botões */
+.btn-login {
+    background-color: #C7D2DD;
+    color: #003366;
+    font-weight: bolder;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    margin-right: 15px;
+    font-size: 1.1rem;
+}
+
+.btn-login:hover {
+    background-color: #a0b0c0;
+    color: #003366;
+}
+
+.dropdown-menu {
+    background-color: #C7D2DD;
+    border-radius: 20px;
+}
+
+.dropdown-item {
+    color: #003366;
+    font-weight: bolder;
+    border-radius: 20px;
+    font-size: 1.1rem;
+}
+
+.dropdown-item:hover {
+    background-color: #a0b0c0;
+    color: #003366;
+}
+
+.btn-home {
+    background-image: linear-gradient(45deg, #003366, #0056a0) !important;
+    color: #C7D2DD;
+    font-weight: bolder;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    font-size: 1rem;
+    transition: background-image 0.3s ease, transform 0.3s ease;
+}
+
+.btn-home:hover {
+    background-image: linear-gradient(45deg, #003366, #0056a0) !important;
+    transform: scale(1.05) !important;
+}
+
+.btn-home i {
+    margin-right: 8px; 
+    color: inherit;
+}
+
+.btn-menu {
+    background-color: #006633;
+    color: #C7D2DD;
+    border: none;
+    margin-left: 10px;
+}
+
+.btn-menu:hover {
+    background-color: #004c26 !important;
+    color: #C7D2DD;
+}
+
+/* Ajustes para telas menores que 1200px */
+@media (max-width: 1199px) {
+    .search-bar {
+        margin-left: 0; /* Remove a margem à esquerda */
+    }
+
+    #accordionSidebar {
+        display: none;
+        position: fixed;
+        width: 230px;
+        height: 100vh;
+        top: 0;
+        left: 0;
+        z-index: 1000;
+        background-color: #006633; /* Garante que a cor de fundo seja a mesma */
+        overflow-y: auto; /* Adiciona rolagem se necessário */
+    }
+    #accordionSidebar.show {
+        display: block;
+    }
+
+    #sidebarToggle {
+        display: block; /* Mostra o botão do menu em telas menores */
+    }
+
+    #sidebarClose {
+        display: block;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        z-index: 1100; /* Garante que o botão de fechar esteja acima do conteúdo da barra lateral */
+    }
+}
+
+/* Ajustes para telas menores que 576px */
+@media (max-width: 575.98px) {
+    .btn-login {
+        display: flex;
+        align-items: center;
+    }
+
+    .btn-login .bi-person-fill {
+        margin-right: 0; /* Remove a margem à direita quando o nome de usuário está escondido */
+    }
+
+    .btn-login span {
+        display: none; /* Esconde o nome de usuário em telas pequenas */
+    }
+}
+
+/* Ajustes para telas maiores que 576px */
+@media (min-width: 576px) {
+    .btn-login.d-none.d-sm-flex {
+        display: flex !important; /* Mostra o botão com nome e ícone em telas maiores */
+    }
+
+    .btn-login.d-flex.d-sm-none {
+        display: none !important; /* Esconde o botão com apenas ícone em telas maiores */
+    }
+
+    .btn-login span {
+        display: inline; /* Garante que o nome de usuário seja exibido em telas maiores */
+    }
+}
+
+
+
+/* FORUM_DETAIL.HTML */
+button:focus, a:focus, .btn:focus {
+    outline: none;
+    box-shadow: none; /* Também remove qualquer sombra de caixa que possa aparecer */
+}
+
+body, html {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+.container-fluid {
+    padding-left: 12px;
+    padding-right: 12px;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.forum-header {
+    position: sticky;
+    top: 0;
+    padding-bottom: 40px;
+    padding-top: 10px;
+    padding-left: 20px;
+    padding-right: 3px;
+    margin-bottom: 0px;
+    width: 100%; /* Certifica-se de que a linha ocupe toda a largura disponível */
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #ffffff;
+}
+
+.forum-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #003366;
+    margin-bottom: 0;
+    padding: 0;
+    text-align: left;
+    margin-right: 5px;
+}
+
+.forum-title i {
+    font-size: 2.5rem;
+    margin-left: 5px;
+    color: #003366;
+}
+
+.follow-toggle {
+    border: none;
+    background: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+.follow-toggle:focus {
+    outline: none;
+}
+
+.btn-question {
+    background-color: #003366;
+    color: #ffffff;
+    font-weight: bolder;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    margin-left: 0;
+}
+
+.btn-question:hover {
+    background-color: #02305e;
+}
+
+
+.questions-container {
+    overflow-y: auto;
+    padding-right: 10px;
+    margin-bottom: 0px;
+    height: 100vh;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.question-item {
+    padding: 0px 0px 5px 5px;
+    display: flex;
+    flex-direction: column;
+    word-wrap: break-word; /* Quebra palavras longas */
+    overflow-wrap: break-word; /* Garante que o texto não transborde */
+    background-color: #ffffff;
+    transition: background-color 0.3s ease;
+    border-radius: 5px;
+}
+
+.question-item:hover {
+    background-color: #C7D2DD;
+}
+
+.question-item a {
+    text-decoration: none;
+}
+
+.question-item .btn-info, .btn-like {
+    background-color: #a0b0c0;
+    border: none;
+    color: #003366;
+    padding: 4px 8px;
+    border-radius: 20px;
+    font-weight: bold;
+    outline: none;
+}
+
+.question-item .btn-info:hover, .btn-like:hover {
+    background-color: #C7D2DD;
+    color: #003366;
+}
+
+.action-buttons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.action-buttons-answer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 5px;
+}
+
+.btn-like, .btn-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 2px; /* Espaçamento entre os botões */
+    outline: none;
+    font-size: 1.12rem;
+}
+
+.btn-like i, .btn-info i {
+    margin-right: 5px; /* Espaçamento entre o ícone e o texto */
+    color: inherit; /* Garante que a cor do ícone herde a cor do texto */
+}
+
+.question-title {
+    font-size: 1.5rem;
+    color: #003366;
+    font-weight: bold;
+    margin: 0;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis; /* Adiciona "..." no final do texto que transborda */
+}
+
+.question-description, .answer-text {
+    font-size: 1.25rem;
+    color: #000000;
+    margin: 0;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis; 
+}
+
+a {
+    display: block;
+    max-width: 100%; /* Garante que o link não ultrapasse os limites do contêiner */
+    overflow: hidden;
+    text-decoration: none;
+}
+
+.question-separator, .answer-separator {
+    border: 0;
+    border-top: 1px solid #006633; /* Linha horizontal */
+    border-bottom: 1px solid #006633;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.question-meta, .answer-meta {
+    font-size: 0.9rem;
+    color: #a0b0c0;
+    margin-bottom: 5px;
+}
+
+.question-author, .answer-author {
+    font-weight: bold;
+    color: #003366;
+    display: inline;
+}
+
+.question-date, .answer-date {
+    color: #999999;
+    display: inline;
+    margin-right: 10px !important;
+}
+
+/* Ajustes para telas menores que 992px */
+@media (max-width: 992px) {
+    .forum-header {
+        flex-direction: column;
+        align-items: flex-start; /* Alinhar elementos à esquerda */
+        padding-left: 0px;
+    }
+
+    .forum-title {
+        font-size: 2rem;
+        margin-bottom: 10px;
+        text-align: left;
+        width: 100%;
+    }
+
+    .forum-title i {
+        font-size: 2rem;
+    }
+
+    .btn-question {
+        width: auto;
+        align-self: flex-start;
+        padding: 8px 16px; /* Reduz o padding do botão */
+        font-size: 0.9rem; /* Reduz o tamanho da fonte do botão */
+    }
+
+    .question-title {
+        font-size: 1.25rem;
+    }
+    
+    .question-description, .answer-text {
+        font-size: 1rem;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .response-form .btn-send , .response-form .btn-cancel{
+        padding: 5px 10px;
+        font-size: 0.95rem;
+    }
+}
+
+/* Ajustes para telas menores que 576px */
+@media (max-width: 576px) {
+    .forum-header {
+        flex-direction: column;
+        align-items: flex-start; /* Alinhar elementos à esquerda */
+        padding-left: 0px;
+    }
+
+    .forum-title {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+        text-align: left;
+        width: 100%;
+    }
+
+    .forum-title i {
+        font-size: 1.5rem;
+    }
+
+    .btn-question {
+        width: auto;
+        align-self: flex-start;
+    }
+
+    .question-title {
+        font-size: 1.1rem;
+    }
+    
+    .question-description, .answer-text {
+        font-size: 0.95rem;
+    }
+
+    .response-form .btn-send , .response-form .btn-cancel{
+        padding: 3px 6px;
+        font-size: 0.9rem;
+    }
+}
+
+
+
+
+/* QUESTION_DETAIL.HTML */
+html, body {
+    height: 100%;
+    overflow: auto; /* Permite rolagem se necessário */
+    margin: 0;
+    padding: 0;
+}
+
+.custom-container {
+    max-width: 100%;
+    margin: 0 auto;
+    margin-right: 0px;
+    margin-left: 0px;
+    padding: 20px;
+    padding-bottom: 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    overflow-wrap: break-word; /* Garante que o texto não transborde */
+    word-wrap: break-word;
+    word-break: break-word;
+    overflow: auto;
+}
+
+.questions-item {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    word-wrap: break-word; /* Quebra palavras longas */
+    overflow-wrap: break-word; /* Garante que o texto não transborde */
+    background-color: #ffffff;
+    transition: background-color 0.3s ease;
+    border-radius: 5px;
+}
+
+.questions-item .btn-info, .btn-like {
+    background-color: #a0b0c0;
+    border: none;
+    color: #003366;
+    padding: 4px 8px;
+    border-radius: 20px;
+    font-weight: bold;
+    outline: none;
+}
+
+.questions-item .btn-info:hover, .btn-like:hover {
+    background-color: #C7D2DD;
+    color: #003366;
+}
+
+.question-info {
+    position: sticky;
+    top: 0;
+    background-color: #ffffff; 
+    z-index: 100; 
+    padding: 0px;
+}
+
+.response-area {
+    margin-top: 5px;
+    margin-bottom: 30px;
+    width: 100%;
+    box-sizing: border-box;
+    overflow: auto;
+}
+
+.response-area input {
+    width: 100%;
+    background-color: #a0b0c0 !important;
+    color: #003366 !important;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+}
+    
+.response-area input::placeholder {
+    color: #003366; 
+    font-weight: bolder;
+}
+
+.response-area input:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.response-form {
+    margin-top: 10px;
+    width: 100%;
+}
+
+.response-form textarea {
+    width: 100%;
+    height: 100px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #C7D2DD;
+    color: #003366;
+    font-size: 1rem;
+    resize: none;
+}
+
+.response-form textarea::placeholder {
+    color: #003366;
+}
+
+.response-form textarea:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.response-form .btn {
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+.response-form .btn-send {
+    background-color: #006633;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+.response-form .btn-send:hover {
+    background-color: #004c26;
+}
+
+.response-form .btn-cancel {
+    background-color: #C7D2DD;
+    color: #003366;
+    font-weight: bold;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+}
+
+.response-form .btn-cancel:hover {
+    background-color: #a0b0c0;
+}
+
+.return-container {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.btn-return {
+    background-color: #006633;
+    color: #C7D2DD;
+    border: none;
+    padding-top: 6px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    text-decoration: none;
+}
+
+.btn-return:hover {
+    background-color: #004c26;
+    color: #C7D2DD;
+}
+
+.answer-list {
+    margin-top: 5px;
+    max-height: 100%;
+    overflow-y: auto;
+}
+
+.answer-item {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    background-color: #ffffff;
+    transition: background-color 0.3s ease;
+    border-radius: 5px;
+}
+
+.answer-item a {
+    text-decoration: none;
+}
+
+.answer-item .btn-info, .btn-like {
+    background-color: #a0b0c0;
+    border: none;
+    color: #003366;
+    padding: 4px 8px;
+    border-radius: 20px;
+    font-weight: bold;
+    outline: none;
+}
+
+.answer-item .btn-info:hover, .btn-like:hover {
+    background-color: #C7D2DD;
+    color: #003366;
+}
+
+.action-buttons-answer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 5px;
+}
+
+.answer-meta {
+    font-size: 0.9rem;
+    color: #a0b0c0;
+    margin-bottom: 5px;
+}
+
+
+
+/* INDEX.HTML */
+.home-container {
+    max-width: 100%;
+    margin: 0; 
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    overflow-wrap: break-word; /* Garante que o texto não transborde */
+    word-wrap: break-word;
+    word-break: break-word;
+    overflow: auto;
+    background-color: #ffffff;
+}
+
+.home-head {
+    font-weight: bold;
+    color: #003366;
+    margin-bottom: 0;
+    padding: 0;
+    text-align: left;
+}
+
+.home-meta {
+    font-size: 0.9rem;
+    color: #a0b0c0;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+
+.forum-label {
+    background-color: #006633;
+    color: #ffffff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    white-space: nowrap; /* Evita que o texto quebre em múltiplas linhas */
+    max-width: fit-content;
+    margin-left: auto;
+    margin-right: 0px !important;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.forum-label:hover {
+    color: #ffffff;
+    background-color: #004c26;
+}
+
+.label-full, .label-short {
+    display: none;
+}
+
+@media (min-width: 769px) {
+    .label-full {
+        display: inline; /* Mostra o nome completo em telas grandes */
+    }
+}
+
+@media (max-width: 768px) {
+    .label-short {
+        display: inline; /* Mostra a primeira palavra em telas pequenas */
+    }
+}
+
+@media (max-width: 400px) {
+    .home-meta {
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    }
+
+    .question-author,
+    .question-date {
+        margin-right: 0;
+    }
+
+    .forum-label {
+        margin-top: 5px; 
+        margin-left: 0;
+        width: auto;
+        text-align: left;
+    }
+}
+
+
+
+/* FORUNS.HTML */
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.container-fluid {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.foruns {
+    background-color: #003366;
+    color: #ffffff;
+    font-weight: bolder;
+    border-radius: 8px;
+}
+
+.forum-header {
+    background-color: #fff;
+    padding: 10px;
+    padding-bottom: 20px;
+    position: sticky;
+    top: 0;
+    width: 100%;
+}
+
+.titulo{
+    color: #003366;
+}
+
+.scroll-container {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 10px;
+    padding-top: 0px !important;
+}
