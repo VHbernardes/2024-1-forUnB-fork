@@ -13,7 +13,7 @@ Django==4.2.14
 django-environ==0.11.2
 environ==1.0
 ghp-import==2.1.0
-gunicorn==23.0.0
+h11==0.14.0
 idna==3.7
 importlib_metadata==8.2.0
 isort==5.13.2
@@ -31,6 +31,7 @@ paginate==0.5.6
 pathspec==0.12.1
 pillow==10.4.0
 platformdirs==4.2.2
+psycopg2-binary==2.9.9
 Pygments==2.18.0
 pylint==3.2.6
 pymdown-extensions==10.8.1
